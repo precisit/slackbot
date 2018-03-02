@@ -12,7 +12,24 @@ starterbot_id = None
 # constants
 RTM_READ_DELAY = 1 # 1 second delay between reading from RTM
 #EXAMPLE_COMMANDS = ["do", "wifi"]
-COMMAND_DICT = {"wifi":"The password is xxx", "adress":"Klostergatan 9 \n 753 21 Uppsala", "help":"These are the available commands:\n", "love":"I love Precisit, not you."}
+COMMAND_DICT = {"wifi":"The password is... not available here yet.",
+                "adress":"Klostergatan 9 \n 753 21 Uppsala",
+                "help":"These are the available commands:\n",
+                "love":"I love Precisit, not you.",
+                "Hej":"Voff.",
+                "Kerstin":"Kerstin gillar hundar och champagne. Hon exjobbar med recommender engines.",
+                "Siri":"Siri gillar att sova och kan prata spanska. Hon jobbar som konsult.",
+                "Simon":"Simon gillar att mingla och käka Paulúns frysmat. Simon jobbar som säljare.",
+                "Sara":"Sara är fotbollsproffs (på riktigt) och gillar kaffe. Sara exjobbar med moln (inte regnmoln då).",
+                "Marika":"Marika gillar att springa långt i skogen och att skriva texter. Hon jobbar som konsult.",
+                "Martin":"Martin gillar geometri och hinderbanelöpning. Han jobbar med webbutveckling.",
+                "Magnus":"Magnus gillar universum och gemenskap. Han jobbar med att förverkliga drömmar.",
+                "Jonas":"Jonas gillar spel och spelutveckling. Han jobbar med spelutveckling.",
+                "Jacob":"Jacob gillar tacos och hundar. Han jobbar med att skriva instruktioner för smarta stenar.",
+                "Emma":"Jag känner inte Emma än men jag vet att hon är studentrepresentant och sociala medier-ansvarig.",
+                "Karolin":"Jag känner inte Karolin än men jag vet att hon jobbar med marknadsföring.",
+                "Precisit":"Precisit är världens bästa företag. :botil: :hearts: :precisit:.",
+                "contribute":"If ya'll wanna contribute, you go do dat at https://github.com/precisit/slackbot."}
 MENTION_REGEX = "^<@(|[WU].+?)>(.*)"
 
 def parse_bot_commands(slack_events):
