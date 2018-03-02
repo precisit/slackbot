@@ -61,7 +61,7 @@ def handle_command(command, channel):
         Executes bot command if the command is known
     """
     # Default response is help text for the user
-#    default_response = "Not sure what you mean. Try *{}*.".format(EXAMPLE_COMMANDS)
+   default_response = "Not sure what you mean. Try another command."
 
     # Finds and executes the given command, filling in response
     response = ""
