@@ -1,5 +1,5 @@
 # slackbot
-A bot you can ask questions on slackbot
+A bot you can ask questions on Slack
 
 ## Prerequisits
 python3
