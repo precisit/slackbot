@@ -65,8 +65,8 @@ def handle_command(command, channel):
 
     # Finds and executes the given command, filling in response
     response = ""
-    words = command.split(' ', '?')
-    #words = command.split('?')
+    words = command.split(' ')
+    words = command.split('?')
     if "help" in words:
         response =COMMAND_DICT["help"] + "\"" + "\"\n\"".join(COMMAND_DICT.keys()) + "\""
     else:
