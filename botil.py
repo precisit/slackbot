@@ -11,7 +11,8 @@ starterbot_id = None
 
 # constants
 RTM_READ_DELAY = 1 # 1 second delay between reading from RTM
-EXAMPLE_COMMAND = "do"
+#EXAMPLE_COMMANDS = ["do", "wifi"]
+COMMAND_DICT = {"wifi":"The password is xxx", "adress":"Klostergatan 9 \n 753 21 Uppsala", "help":"These are the available commands:\n", "love":"I love Precisit, not you."}
 MENTION_REGEX = "^<@(|[WU].+?)>(.*)"
 
 def parse_bot_commands(slack_events):
@@ -32,7 +33,9 @@ def parse_direct_mention(message_text):
         Finds a direct mention (a mention that is at the beginning) in message text
         and returns the user ID which was mentioned. If there is no direct mention, returns None
     """
+    print(message_text)
     matches = re.search(MENTION_REGEX, message_text)
+    print(matches)
     # the first group contains the username, the second group contains the remaining message
     return (matches.group(1), matches.group(2).strip()) if matches else (None, None)
 
@@ -41,17 +44,22 @@ def handle_command(command, channel):
         Executes bot command if the command is known
     """
     # Default response is help text for the user
-    default_response = "Not sure what you mean. Try *{}*.".format(EXAMPLE_COMMAND)
+#    default_response = "Not sure what you mean. Try *{}*.".format(EXAMPLE_COMMANDS)
 
     # Finds and executes the given command, filling in response
-    response = None
-    # This is where you start to implement more commands!
-    if command.startswith(EXAMPLE_COMMAND):
-        response = "Sure...write some more code then I can do that!"
+    response = ""
+    words = command.split(' ')
+    if "help" in words:
+        response =COMMAND_DICT["help"] + "\"" + "\"\n\"".join(COMMAND_DICT.keys()) + "\""
+    else:
+        for word in words:
+            if word in COMMAND_DICT.keys():
+                response = response + "\n" + COMMAND_DICT[word]
 
-    # Sends the response back to the channel
-    slack_client.api_call(
-        "chat.postMessage",
+                if  response == "":
+                    response = "I didn't understand"
+
+    slack_client.api_call(        "chat.postMessage",
         channel=channel,
         text=response or default_response
     )
