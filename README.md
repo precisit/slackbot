@@ -1,8 +1,17 @@
 # slackbot
 A bot you can ask questions on Slack
 
-## Prerequisits
+
+### Prerequisites
+
+#### Install Python 3
 python3
+
+#### Install pip
 pip
+
+#### Install virtualenv
 virtualenv
+
+#### Free Slack account
 Slack Account
